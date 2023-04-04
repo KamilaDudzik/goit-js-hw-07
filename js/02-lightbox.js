@@ -8,12 +8,11 @@ for (const galleryItem of galleryItems) {
 
     const newItem = `
     
-    <li class="gallery__item"><a class="gallery__link" href="${galleryItem.original}">
-
+    <li>
+    <a class="gallery__item" href="${galleryItem.original}">
     <img
       class="gallery__image"
       src="${galleryItem.preview}"
-      data-source="${galleryItem.original}"
       alt="${galleryItem.description}"
       />
       </a>
@@ -21,5 +20,12 @@ for (const galleryItem of galleryItems) {
     
     gallery.innerHTML += newItem;
 };
+
+const lightbox = new SimpleLightbox(".gallery a", {
+    captions: true,
+    captionsData: "alt",
+    captionDelay: 250,
+    captionPosition: "bottom"
+});
 
 console.log(galleryItems);
