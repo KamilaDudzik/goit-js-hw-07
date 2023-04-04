@@ -6,7 +6,9 @@ const gallery = document.querySelector('.gallery');
 galleryItems.innerHTML = '';
 for (const galleryItem of galleryItems) {
 
-    const newItem = `<a class="gallery__link" href="${galleryItem.original}">
+    const newItem = `
+    
+    <li class="gallery__item"><a class="gallery__link" href="${galleryItem.original}">
 
     <img
       class="gallery__image"
@@ -14,7 +16,8 @@ for (const galleryItem of galleryItems) {
       data-source="${galleryItem.original}"
       alt="${galleryItem.description}"
       />
-      </a>`
+      </a>
+      </li>`
     
     gallery.innerHTML += newItem;
 };
@@ -31,3 +34,5 @@ gallery.addEventListener("click", (event) => {
 })
 
 console.log(galleryItems);
+
+
