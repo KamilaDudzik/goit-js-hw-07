@@ -19,4 +19,15 @@ for (const galleryItem of galleryItems) {
     gallery.innerHTML += newItem;
 };
 
+gallery.addEventListener("click", (event) => {
+    event.preventDefault();
+    const instance = basicLightbox.create(`<img src="${event.target.dataset.source}" />`)
+    instance.show();
+    window.addEventListener("keydown", (eventKey) => {
+        if (eventKey.key === "Escape") {
+            instance.close();
+        }
+    })
+})
+
 console.log(galleryItems);
